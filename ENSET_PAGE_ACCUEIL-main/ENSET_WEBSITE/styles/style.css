@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(128deg, #1074cd, #5e4eb8);
+  transition: background-image 15s ease-in-out;
+}
+
+.container .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 21px #4a3c97;
+  padding-right: 20px;
+}
+
+.container .nav-container .logo img {
+  width: 120px;
+}
+
+.container .nav-container nav .nav-items {
+  display: flex;
+  align-items: center;
+}
+
+.container .nav-container nav .nav-items li {
+  list-style: none;
+}
+
+.container .nav-container nav .nav-items li a {
+  text-decoration: none;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  display: inline-block;
+  transition: 0.15s ease-in-out;
+  text-align: center;
+}
+
+.container .nav-container nav .nav-items li a:hover {
+  color: #1074cd;
+}
+
+.container .nav-container nav .nav-items li a.signUpBtn1 {
+  background: #5e4eb8;
+  color: #fff;
+  padding: 10px 30px;
+}
+
+.container .nav-container nav .nav-items li a.signUpBtn1:hover {
+  background: #5344a9;
+}
+
+.container .nav-container nav .nav-items li a.signUpBtn1:active {
+  transform: translateY(4px);
+}
+
+.container .inner-container .left-column {
+  width: 70%;
+  position: absolute;
+  left: -150px;
+  bottom: -100px;
+}
+
+.container .inner-container .right-column {
+  width: 40%;
+  position: absolute;
+  right: 150px;
+  top: 20%;
+  color: #fff;
+}
+
+.container .inner-container .right-column .row1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.container .inner-container .right-column .row1 h1 {
+  animation: typing 3s steps(19) infinite;
+  animation-direction: alternate;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255, 255, 255, 0.7);
+  width: 19ch;
+}
+
+.container .inner-container .right-column .row2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.container .inner-container .right-column .row2 .signUpBtn2 {
+  text-decoration: none;
+  color: #5e4eb8;
+  text-align: center;
+  background: #fff;
+  padding: 10px;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  width: 200px;
+  margin-top: 40px;
+  transition: 0.15s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.container .inner-container .right-column .row2 .signUpBtn2:hover {
+  background: white;
+  color: #000;
+}
+
+.container .inner-container .right-column .row2 .signUpBtn2:after {
+  content: "";
+  background: #6f60bf;
+  display: block;
+  position: absolute;
+  padding-top: 300px;
+  padding-left: 350px;
+  margin-left: -50px;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+  border-radius: 50px;
+}
+
+.container .inner-container .right-column .row2 .signUpBtn2:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.loader-container {
+  height: 100vh;
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  z-index: 111;
+  display: grid;
+  place-items: center;
+}
+
+.loader-container .half-circle-spinner {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+}
+
+.loader-container .half-circle-spinner .circle {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: calc(60px / 10) solid transparent;
+}
+
+.loader-container .half-circle-spinner .circle.circle-1 {
+  border-top-color: #5e4eb8;
+  animation: half-circle-spinner-animation 1s infinite;
+}
+
+.loader-container .half-circle-spinner .circle.circle-2 {
+  border-bottom-color: #5e4eb8;
+  animation: half-circle-spinner-animation 1s infinite alternate;
+}
+
+@keyframes half-circle-spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+::selection {
+  background: #5e4eb8;
+  color: #fff;
+}
+
+@keyframes typing {
+  0% {
+    width: 0ch;
+  }
+  60% {
+    width: 19ch;
+    border-color: transparent;
+  }
+  70% {
+    border-color: #fff;
+  }
+  80% {
+    border-color: transparent;
+  }
+  90% {
+    border-color: #fff;
+  }
+  95% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: white;
+  }
+}

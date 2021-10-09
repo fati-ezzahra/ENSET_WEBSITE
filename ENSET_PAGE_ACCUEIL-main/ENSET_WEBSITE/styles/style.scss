@@ -1,0 +1,207 @@
+@import 'utilities' ;
+@import 'colors' ;
+@import 'fonts' ;
+
+.container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-image: linear-gradient(128deg,$color2,$color1);
+    transition: background-image 15s ease-in-out;
+    .nav-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $white;
+        box-shadow: 0 0 21px  darken($color1, 10%);
+        padding-right: 20px;
+        .logo img{
+            width: 120px;
+        }
+        nav {
+            .nav-items {
+                display: flex;
+                align-items: center;
+                li {
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        padding: 20px;
+                        font-family: $poppins;
+                        display: inline-block;
+                        transition: 0.15s ease-in-out;
+                        text-align: center;
+                        &:hover{
+                            color: $color2;
+                        }
+                    }
+                    a.signUpBtn1 {
+                        background: $color1;
+                        color: $white;
+                        padding: 10px 30px;
+                        &:hover{
+                            background: darken($color1, 5%);
+                        }
+                        &:active{
+                            transform: translateY(4px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .inner-container{  
+        .left-column{
+            width: 70%;
+            position: absolute;
+            left: -150px;
+            bottom: -100px;
+            // flex: 2;
+        }
+        .right-column{
+            width: 40%;
+            position: absolute;
+            right: 150px;
+            top: 20%;
+            color: $white;
+            // margin-right: 20px;
+            .row1 {
+                font-family: $poppins;
+                // text-align: center;
+                font-weight: bold;
+                font-size: 1.5rem;
+                // display: flex;
+                h1{
+                    animation: typing 3s steps(19) infinite;
+                    // animation-fill-mode: forwards;
+                    animation-direction: alternate;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    border-right: 2px solid rgba(255,255,255,0.7);
+                    width: 19ch;
+                   
+                }
+               
+            }
+            .row2 {
+                display: flex;
+                flex-direction: column;
+                margin-top: 40px;
+                align-items: center ;
+                font-family: $poppins;
+                .signUpBtn2{
+                    text-decoration: none;
+                    color: $color1;
+                    text-align: center;
+                    background: $white;
+                    padding: 10px;
+                    font-size: 1.5rem;
+                    border-radius: 50px;
+                    width: 200px;
+                    margin-top: 40px;
+                    transition: 0.15s ease-in-out;
+                    position: relative;
+                    overflow: hidden;
+                    &:hover{
+                        background: lighten($white,5%);
+                        color: $black;
+                    }
+                    &:after {
+                        content: "";
+                        background: lighten($color1, 5%);
+                        display: block;
+                        position: absolute;
+                        padding-top: 300px;
+                        padding-left: 350px;
+                        margin-left: -50px;
+                        margin-top: -120%;
+                        opacity: 0;
+                        transition: all 0.8s ;
+                        border-radius: 50px;
+                      }
+                      
+                      &:active:after {
+                        padding: 0;
+                        margin: 0;
+                        opacity: 1;
+                        transition: 0s
+                      }
+                }
+            }
+        }
+
+    }
+}
+
+// styling the spiner
+.loader-container {
+    height: 100vh ;
+    width: 100%;
+    background: $white;
+    position: absolute;
+    z-index: 111;
+    display: grid;
+    place-items: center;
+    // display: none;
+.half-circle-spinner {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: relative;
+    .circle {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        border: calc(60px / 10) solid transparent;
+      }
+      .circle.circle-1 {
+        border-top-color: $color1;
+        animation: half-circle-spinner-animation 1s infinite;
+      }
+      .circle.circle-2 {
+        border-bottom-color: $color1;
+        animation: half-circle-spinner-animation 1s infinite alternate;
+      }
+  }
+}
+    // loader Animation
+  @keyframes half-circle-spinner-animation {
+    0% {
+      transform: rotate(0deg);
+
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+::selection{
+    background: $color1;
+    color: $white;
+}
+// typing effect animation 
+@keyframes typing{
+    0%{width: 0ch;}
+   60%{
+       width: 19ch;
+       border-color: transparent;
+    }
+    70%{
+        border-color: $white;
+    }
+    80%{
+        border-color: transparent;
+    }
+    90%{
+        border-color: $white;
+    }
+    95%{
+        border-color: transparent;
+    }
+    100%{
+        border-color: white;
+    }
+
+}
